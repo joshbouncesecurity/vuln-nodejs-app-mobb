@@ -32,7 +32,7 @@ export class React_ref_innerHTML_xss extends Component {
         });
         const response = await request.json();
         this.nameRef.current.innerHTML = response.name;
-        this.emailRef.current.innerHTML = response.email;
+        this.emailRef.current.innerText = response.email;
         this.websiteRef.current.setAttribute('href', response.website);
         this.websiteRef.current.innerHTML = response.website;
         document.getElementById('update').setAttribute('hidden', true);
