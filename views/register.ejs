@@ -51,9 +51,9 @@
                                             User already registerd!
                                             </div>`;
                                     } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 400) {
-                                        document.getElementById('register-error').innerHTML = `<div class="alert alert-danger" role="alert">
+                                        document.getElementById('register-error').innerHTML = DOMPurify.sanitize(`<div class="alert alert-danger" role="alert">
                                             ${xhr.responseText}
-                                            </div>`
+                                            </div>)`
                                     }
                                 }
                                 const data = 'username=' + username + '&email=' + email + '&password=' + password;
