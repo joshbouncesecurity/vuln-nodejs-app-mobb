@@ -65,7 +65,7 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                     const res = JSON.parse(xhr.responseText);
-                    document.getElementById("result").innerHTML = "Number of trains " + res[0].ntrains + ".";
+                    document.getElementById("result").innerText = "Number of trains " + res[0].ntrains + ".";
                 }
             }
             xhr.open('GET', window.location.origin+'/sqli/' + val1.value + '-' + val2.value, true);

@@ -1,3 +1,4 @@
+import * as DOMPurify from 'dompurify'
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 
@@ -31,7 +32,7 @@ export class React_ref_innerHTML_xss extends Component {
             body: JSON.stringify({ name: name, email: email, website: website })
         });
         const response = await request.json();
-        this.nameRef.current.innerHTML = response.name;
+        this.nameRef.current.innerHTML = DOMPurify.sanitize(response.name);
         this.emailRef.current.innerHTML = response.email;
         this.websiteRef.current.setAttribute('href', response.website);
         this.websiteRef.current.innerHTML = response.website;
